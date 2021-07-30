@@ -1,4 +1,4 @@
-variable "create" {
+variable "create_bucket" {
   description = "Determines if resources in this module should be created. Defaults to true."
   type        = bool
   default     = true
@@ -57,10 +57,10 @@ variable "sse_enabled" {
   default     = true
 }
 
-variable "sse_configuration" {
-  description = "Map of server side encryption configuration properties."
-  type        = any
-  default     = {}
+variable "sse_algorithm" {
+  description = "Sever side encryption algorithm to be used."
+  type        = string
+  default     = "aws:kms"
 }
 
 variable "logging_enabled" {
@@ -69,8 +69,8 @@ variable "logging_enabled" {
   default     = false
 }
 
-variable "logging_configuration" {
-  description = "Map of logging configuration properties."
-  type        = any
-  default     = {}
+variable "logging_bucket" {
+  description = "Bucket to send logs to."
+  type        = string
+  default     = null
 }
